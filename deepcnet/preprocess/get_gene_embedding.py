@@ -19,16 +19,16 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="Train multi-celltype gene autoencoder.")
 
     parser.add_argument("--gene_activity", required=True, type=str,
-                        help="Path to GeneActivity.csv")
+                        help="Path to the GeneActivity.csv file. Rows are genes and columns are cells, generated using Signac::GeneActivity.")
 
-    parser.add_argument("--cv_split", required=True, type=str,
-                        help="Path to cross-validation split file")
+    parser.add_argument("--cv_split", type=str, default="examples/example_data/split_example.csv",
+    help="CSV file defining train/val/test split (default: toy example split)")
 
     parser.add_argument("--celltype_file", required=True, type=str,
-                        help="Path to cell_celltypes.txt")
+                        help="Path to a text file mapping each cell (column in GeneActivity.csv) to a cell type label.")
 
     parser.add_argument("--weights_file", required=True, type=str,
-                        help="Path to celltype similarity weight matrix")
+                        help="Path to the cell-type similarity weight matrix (CSV). Used to guide the multi–cell-type embedding fusion.")
 
     parser.add_argument("--fold", required=True, type=str,
                         help="Fold name, e.g., fold_1")
@@ -37,7 +37,7 @@ def parse_arguments():
                         help="Directory to save model and embeddings")
 
     parser.add_argument("--anchor_celltype", default=None, type=str,
-                        help="Anchor cell type name")
+                        help="Anchor cell type used for the similarity regularization term.")
 
     parser.add_argument("--epochs", default=100, type=int)
     parser.add_argument("--patience", default=10, type=int)

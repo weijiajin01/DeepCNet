@@ -26,11 +26,14 @@ def parse_arguments():
 
     parser.add_argument("--activity_folder", type=str, required=True)
     parser.add_argument("--expression_folder", type=str, required=True)
-    parser.add_argument("--enhancer_info_path", type=str, required=True)
-    parser.add_argument("--epi_path", type=str, required=True)
+    parser.add_argument("--enhancer_info_path", default="examples/example_data/deepcnet/enhancer_info_toy.h5",
+    help="Path to enhancer–gene mapping file (default: toy example)")
+    parser.add_argument("--epi_path", type=str, default="examples/example_data/epi_embedding/epi_embedding_toy.h5",
+    help="Path to epigenetic embedding file (default: toy example)")
 
     parser.add_argument("--embeddings_path", type=str, required=True)
-    parser.add_argument("--split_csv", type=str, required=True)
+    parser.add_argument("--split_csv", type=str, default="examples/example_data/split_example.csv",
+    help="CSV file defining train/val/test split (default: toy example split)")
     parser.add_argument("--save_dir", type=str, required=True)
     parser.add_argument("--extract_attn", action="store_true",
                     help="If set, extract attention matrices after testing.")

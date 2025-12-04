@@ -7,9 +7,9 @@ from deepcnet.preprocess.extract_sequence_features import fasta_to_embedding
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--fasta", required=True)
-    parser.add_argument("--model", required=True)
-    parser.add_argument("--output", required=True)
+    parser.add_argument("--fasta", required=True, help="Input fasta file path.")
+    parser.add_argument("--model", required=True, help="Path for pretrained DeepSEA model.")
+    parser.add_argument("--output", required=True, help="Output h5 path for embeddings.")
     parser.add_argument("--batch_size", type=int, default=64)
     parser.add_argument("--input_size", type=int, default=2000)
 
