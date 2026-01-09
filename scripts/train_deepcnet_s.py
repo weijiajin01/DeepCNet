@@ -5,8 +5,8 @@ import torch
 from torch.utils.data import Subset
 from datetime import datetime
 
-from deepcnet.models.deepcnet import DeepCNet
-from deepcnet.training.utils_deepcnet import DeepCNetDataset, train, test
+from deepcnet.models.deepcnet_s import DeepCNetS
+from deepcnet.training.utils_deepcnet_s import DeepCNetDataset, train, test
 from deepcnet.utils.utils_data_prep import load_gene_embeddings, build_fold_indices
 
 
@@ -91,7 +91,7 @@ def main():
     # ---------------------------
     # Build model
     # ---------------------------
-    model = DeepCNet(
+    model = DeepCNetS(
         n_encoder=args.n_enc_layer,
         out_dim=64,
         head=4,
@@ -107,7 +107,7 @@ def main():
     # Prepare save path
     # ---------------------------
     timestamp = datetime.now().strftime("%Y-%m-%d-%H")
-    save_dir = os.path.join(args.save_dir, f"{args.cell}_{timestamp}")
+    save_dir = os.path.join(args.save_dir, f"cell_{args.cell}", f"{timestamp}")
     os.makedirs(save_dir, exist_ok=True)
 
     # ---------------------------

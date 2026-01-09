@@ -127,7 +127,7 @@ def main():
     # Prepare save directory
     # -----------------------------------------------------
     timestamp = datetime.now().strftime("%Y-%m-%d-%H")
-    save_dir = os.path.join(args.save_dir, f"{args.cell}_{timestamp}")
+    save_dir = os.path.join(args.save_dir, f"cell_{args.cell}", f"{timestamp}")
     os.makedirs(save_dir, exist_ok=True)
 
     # -----------------------------------------------------

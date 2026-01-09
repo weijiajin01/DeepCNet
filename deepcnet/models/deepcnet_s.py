@@ -11,7 +11,7 @@ from deepcnet.models.layers import (
 )
 
 
-class DeepCNet(nn.Module):
+class DeepCNetS(nn.Module):
     """
     Single-condition DeepCNet,
     Produces expression predictions and attention matrix.

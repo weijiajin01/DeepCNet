@@ -9,7 +9,7 @@ DeepCNet is a multimodal deep learning framework that predicts gene expression a
 
 DeepCNet provides two training modes:
 
-- **DeepCNet** — single-condition model  
+- **DeepCNet-S** — single-condition model  
 - **DeepCNet-D** — two-condition joint model with condition-specific attention bias (Control vs Disease)
 
 Both models produce gene expression predictions and p-e attention maps.
@@ -27,13 +27,13 @@ conda env create -f environment.yml
 conda activate deepcnet
 ```
 
-## 2. Train DeepCNet (Single Condition)
+## 2. Train DeepCNet-S (Single Condition)
 
-DeepCNet trains a single-condition model using epigenetic embeddings, peak accessibility features, and precomputed gene embeddings. The model outputs a trained checkpoint, a CSV file of predicted gene expression, and (optionally) an H5 file containing the p-e attention matrix when `--extract_attn` is enabled.
+DeepCNet-S trains a single-condition model using epigenetic embeddings, peak accessibility features, and precomputed gene embeddings. The model outputs a trained checkpoint, a CSV file of predicted gene expression, and (optionally) an H5 file containing the p-e attention matrix when `--extract_attn` is enabled.
 
 
 ```bash
-python scripts/train_deepcnet.py \
+python scripts/train_deepcnet_s.py \
     --cell Mic \
     --activity_folder examples/example_data/deepcnet/normal_Mic \
     --expression_folder examples/example_data/deepcnet/normal_Mic \

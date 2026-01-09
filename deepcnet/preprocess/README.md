@@ -23,7 +23,7 @@ This script converts 2000 bp FASTA sequences into epigenetic feature embeddings 
 
 Download Expecto Beluga model:
 ```bash
-wget -O ./expecto/deepsea.beluga.pth https://zenodo.org/record/3402406/files/deepsea.beluga.pth?download=1 
+wget -O {MODEL_PATH} https://zenodo.org/record/3402406/files/deepsea.beluga.pth?download=1 
 
 ```
 

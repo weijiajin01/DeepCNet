@@ -58,13 +58,13 @@ def load_celltypes(celltype_file):
 
 def load_split_data(gene_activity_path, cv_split_path):
     gene_activity = pd.read_csv(gene_activity_path, index_col=0)
-    cv_split = pd.read_csv(cv_split_path).set_index("Gene_name")
+    cv_split_ori = pd.read_csv(cv_split_path).set_index("Gene_name")
 
-    common = gene_activity.index.intersection(cv_split.index)
+    common = gene_activity.index.intersection(cv_split_ori.index)
     gene_activity = gene_activity.loc[common]
-    cv_split = cv_split.loc[common]
+    cv_split = cv_split_ori.loc[common]
 
-    return gene_activity, cv_split
+    return gene_activity, cv_split, cv_split_ori
 
 
 def main():
@@ -73,7 +73,7 @@ def main():
 
     os.makedirs(args.output_dir, exist_ok=True)
 
-    gene_activity, cv_split = load_split_data(
+    gene_activity, cv_split, cv_split_ori = load_split_data(
         args.gene_activity,
         args.cv_split
     )
@@ -136,8 +136,8 @@ def main():
     embedding_df = pd.DataFrame(embeddings, index=all_genes)
 
     final_embeddings = pd.DataFrame(
-        np.zeros((len(cv_split), embeddings.shape[1]), dtype=np.float32),
-        index=cv_split.index
+        np.zeros((len(cv_split_ori), embeddings.shape[1]), dtype=np.float32),
+        index=cv_split_ori.index
     )
 
     for gene in embedding_df.index:
