@@ -5,7 +5,7 @@ DeepCNet is a multimodal deep learning framework that predicts gene expression a
 - enhancer accessibility  
 - enhancer–promoter distance  
 - sequence-based epigenetic embeddings
-- gene embeddings learned from multi-cell-type autoencoder
+- gene embeddings learned from cross-cell-type autoencoder
 
 DeepCNet provides two training modes:
 
@@ -14,7 +14,8 @@ DeepCNet provides two training modes:
 
 Both models produce gene expression predictions and p-e attention maps.
 
----
+---![DeepCNet](https://github.com/user-attachments/assets/9ac991f9-c85b-478a-88b6-6ce8dbb15693)
+
 
 ## Installation
 
