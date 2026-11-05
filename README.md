@@ -24,7 +24,7 @@ DeepCNet requires **Python 3.10** and **PyTorch ≥ 2.0**.
 ### 1. Create environment
 
 ```bash
-conda env create -f environment.yml
+conda env create -f deepcnet/environment.yml
 conda activate deepcnet
 ```
 
@@ -68,3 +68,5 @@ We provide a minimal toy dataset under `examples/example_data/` for running the 
 ## 5. Citation
 
 If you use DeepCNet or DeepCNet-D in your research, please cite our work:
+
+Li Chen, Weijia Jin, Fengdi Zhao et al. DeepCNet: A multimodal deep learning model for predicting cell type-specific gene expression and promoter-enhancer interactions from single-cell multiome data, 03 September 2026, PREPRINT (Version 1) available at Research Square [https://doi.org/10.21203/rs.3.rs-8716015/v1](https://doi.org/10.21203/rs.3.rs-8716015/v1)

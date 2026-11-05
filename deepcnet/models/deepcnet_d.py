@@ -164,7 +164,7 @@ class DeepCNetD(nn.Module):
             mask_control = self.attn_mask_base.clone()
             mask_control[0, :] += self.attn_bias_control[i][0]
 
-            x_disease, w_control = self.attn_blocks[i](
+            x_control, w_control = self.attn_blocks[i](
                 x_control,
                 padding_mask,
                 attn_mask=mask_control.to(self.device),
